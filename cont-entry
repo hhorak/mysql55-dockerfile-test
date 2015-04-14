@@ -1,0 +1,13 @@
+#!/bin/bash
+
+source /etc/bashrc
+
+set -e
+
+for i in /usr/local/libexec/cont-entry.d/*.sh; do
+    if [ -r "$i" ]; then
+        . "$i"
+    fi
+done
+
+exec "$@"
